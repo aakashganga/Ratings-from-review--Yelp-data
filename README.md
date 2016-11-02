@@ -42,7 +42,9 @@ Step 5. Trained a neural net based  model in Keras to predict ratings - a multin
 
 The relevant file is 'neural net(LSTM) model for rating.ipynb'. The input are two files 'X.npy' and 'y.npy'.  The output is the prediction for the test set. I treated 1-5 rating as multinomial classification problem. I used LSTM version of deep neural net to accomodate NLP based input which could be of varied length and complex. I measured my accuracy using AUC which is explained in the last part(Read 4)
 
-
+----Attention-----
+The libraries required are numpy, pandas, scikit learn, json, re, sys, gensim, logging, keras
+------------------
 
 
 
