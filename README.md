@@ -19,11 +19,11 @@ The most interesting problem I found was to predict the rating of a restaurant b
 
 Approach - These scripts have to be run in the given order. 
 
-Step 1. Read the business information, review information in pandas data frame
+Step 1. Read the review information in 'review.json' into pandas data frame using json library
 
    - The first script to be run is called 'Reading Data .ipynb'. The input to this script is 'review.json'. The output of this file is 'review1', 'review2' ... 'review23' in pickle format. The input file was 2.5 GB so I had to chunk it into smaller pieces to be able to work with the data on my 4 GB memory.
    
-Step 2. Generated the vector representation of the words in the review using word2vec model. 
+Step 2. Generated the vector representation of the words in the review using word2vec model using logging library
 
 We do not necessarily have to train  our own model. Instead we can use a global library. However, I preferred to do so as it gives more insight into the problem as to what is going on.
 
@@ -31,15 +31,15 @@ The second script to be run is called 'Word2vec model.ipynb'. The input to this 
     
 I tested the accuracy of my vector representation by asking the model several questions. One of them is mentioned at the end of the script as to which is the most dissimilar between food, water, dinner and italy. The answer was italy.
 
-Step 3. Mapped the individual reviews to the word vectors and stored them in the pandas dataframe. 
+Step 3. Mapped the individual reviews to the word vectors and stored them in the pandas dataframe using pandas and re library
 
 The third script to be run is called 'text to vector conversion as per trained word2vec.ipynb'. The input to this script was model generated in the previous script called '100features_10minwords_10context'. The output is a pickle file called 'business_data' with vectorised words for one of the chunked review files -'review1'.
 
-Step 4.  Prepared the input and output data for answering the modelling question. 
+Step 4.  Prepared the input and output data for answering the modelling question using numpy library. 
 
 The fourth script is is called - 'data preparation.ipynb'. The input is 'business_data' and the output are two files 'X.npy' and 'y.npy'. 
 
-Step 5. Trained a neural net based  model in Keras to predict ratings - a multinomial classification problem. 
+Step 5. Trained a neural net based  model in Keras to predict ratings - a multinomial classification problem- using Keras library. 
 
 The relevant file is 'neural net(LSTM) model for rating.ipynb'. The input are two files 'X.npy' and 'y.npy'.  The output is the prediction for the test set. I treated 1-5 rating as multinomial classification problem. I used LSTM version of deep neural net to accomodate NLP based input which could be of varied length and complex. I measured my accuracy using AUC which is explained in the last part(Read 4)
 
