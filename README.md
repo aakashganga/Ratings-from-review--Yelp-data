@@ -1,6 +1,7 @@
 # Ratings-from-review--Yelp-data
+#The libraries required are numpy, pandas, scikit learn, json, re, sys, gensim, logging, keras
 
-Read 1:
+#Read 1:
 
 The Yelp data set came with following data:
 
@@ -14,7 +15,7 @@ The most interesting problem I found was to predict the rating of a restaurant b
 
 
 
-Read 2:
+#Read 2:
 
 Approach - These scripts have to be run in the given order. 
 
@@ -42,15 +43,12 @@ Step 5. Trained a neural net based  model in Keras to predict ratings - a multin
 
 The relevant file is 'neural net(LSTM) model for rating.ipynb'. The input are two files 'X.npy' and 'y.npy'.  The output is the prediction for the test set. I treated 1-5 rating as multinomial classification problem. I used LSTM version of deep neural net to accomodate NLP based input which could be of varied length and complex. I measured my accuracy using AUC which is explained in the last part(Read 4)
 
-----Attention-----
-The libraries required are numpy, pandas, scikit learn, json, re, sys, gensim, logging, keras
-------------------
 
 
 
 
 
-Read 3:
+#Read 3:
 
 Key challenges:
 
@@ -62,6 +60,6 @@ Key challenges:
 
 
 
-Read 4:
+#Read 4:
 
 For AUC calculation on multinomial classification, I chose the highest scores among scores for all 5 classes of rating. For the true class, I used 1 if the predicted rating matched the true rating. Otherwised I used 0.  The AUC was .71 which is quite reasonable. I found that ratings 4 or 5 were easily predicted, even without using the entire data set (due to memory limitations).
